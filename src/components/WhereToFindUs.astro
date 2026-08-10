@@ -1,0 +1,128 @@
+---
+// src/components/WhereToFindUs.astro
+---
+
+<section id="find-us" class="w-full bg-[#FDF6E2] overflow-hidden relative">
+  <div class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:grid md:grid-cols-2 items-center gap-10 md:gap-12 relative z-10">
+      
+      {/* Left Column: Texts and Actions */}
+      <div class="flex flex-col items-center text-center md:items-start md:text-left gap-8 w-full">
+        
+        {/* Heading */}
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight">
+          <span class="text-gray-900 block sm:inline">Where To</span>
+          <span class="text-[#2B3A67]">Find Us</span>
+        </h2>
+
+        {/* Platform Delivery Row */}
+        <div class="flex items-center gap-4 justify-center md:justify-start flex-wrap">
+          {/* GoFood */}
+          <a href="#" class="h-14 px-4 rounded-xl flex items-center justify-center shadow-sm bg-white border border-gray-100 hover:scale-105 transition-transform group" aria-label="Order on GoFood">
+            <img src="/logos/gofood.svg" alt="GoFood" class="h-7 w-auto object-contain group-hover:scale-110 transition-transform" loading="lazy" />
+          </a>
+          
+          {/* ShopeeFood */}
+          <a href="#" class="h-14 px-4 rounded-xl flex items-center justify-center shadow-sm bg-white border border-gray-100 hover:scale-105 transition-transform group" aria-label="Order on ShopeeFood">
+            <img src="/logos/shopeefood.svg" alt="ShopeeFood" class="h-7 w-auto object-contain group-hover:scale-110 transition-transform" loading="lazy" />
+          </a>
+          
+          {/* GrabFood */}
+          <a href="#" class="h-14 px-4 rounded-xl flex items-center justify-center shadow-sm bg-white border border-gray-100 hover:scale-105 transition-transform group" aria-label="Order on GrabFood">
+            <img src="/logos/grabfood.svg" alt="GrabFood" class="h-7 w-auto object-contain group-hover:scale-110 transition-transform" loading="lazy" />
+          </a>
+          
+          {/* WhatsApp */}
+          <a href="#" class="h-14 px-5 rounded-xl flex items-center justify-center shadow-sm bg-white border border-gray-100 hover:scale-105 transition-transform group" aria-label="Contact via WhatsApp">
+            <img src="/logos/whatsapp.svg" alt="WhatsApp" class="h-7 w-auto object-contain group-hover:scale-110 transition-transform" loading="lazy" />
+          </a>
+        </div>
+
+        {/* Offline Store Section */}
+        <div class="flex flex-col items-center md:items-start gap-4 mt-6">
+          <p class="text-lg md:text-xl font-medium text-[#53658C]">
+            Check out our Offline Store at :
+          </p>
+          
+          <a 
+            href="https://maps.google.com/?q=Piazza+Carribean+Blok+B+No+109,+Beverli+Lakes-Pakar+15810,+Gading+Serpong,+Pagedangan+Tangerang,+Banten" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="group flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 p-5 rounded-2xl bg-white/40 hover:bg-white/70 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md transition-all duration-300 w-full max-w-lg cursor-pointer"
+          >
+            <div class="flex-shrink-0 mt-1">
+              {/* Google Maps Pin Icon */}
+              <svg class="w-9 h-9 transform group-hover:-translate-y-1 group-hover:scale-110 transition-all duration-300 drop-shadow-sm" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="#EA4335"/>
+                <path d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9C9.5 7.62 10.62 6.5 12 6.5C13.38 6.5 14.5 7.62 14.5 9C14.5 10.38 13.38 11.5 12 11.5Z" fill="url(#paint0_linear)"/>
+                <defs>
+                  <linearGradient id="paint0_linear" x1="5" y1="2" x2="19" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4285F4"/>
+                    <stop offset="0.5" stop-color="#34A853"/>
+                    <stop offset="1" stop-color="#FBBC05"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm md:text-base text-[#4A5568] leading-relaxed font-medium group-hover:text-[#2D3748] transition-colors">
+                Piazza Carribean Blok B No 109, Beverli Lakes-Pakar 15810, Gading Serpong, Pagedangan Tangerang, Banten
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      {/* Right Column: Visuals (Product Packaging & Cookies) */}
+      <div class="relative w-full h-[400px] md:h-[500px] flex items-center justify-center mt-12 md:mt-0">
+        <div class="relative w-full max-w-lg aspect-square">
+          
+          {/* Main Product Image Placeholder Area */}
+          <div class="absolute inset-0 flex items-center justify-center">
+            {/* Semantic SVG/Image Slot for the main product composite */}
+            <img 
+              src="/images/where-to-find-product.png" 
+              alt="Big Phil Ostekake Display" 
+              class="w-full h-full object-contain relative z-10 drop-shadow-2xl transition-transform hover:scale-105 duration-500"
+              loading="lazy"
+            />
+          </div>
+
+          {/* Floating Decor Placeholders (for dynamic movement) */}
+          <img 
+            src="/images/cookie-float-1.png" 
+            alt="" 
+            class="absolute top-4 left-4 w-20 md:w-28 object-contain -rotate-12 z-20 animate-float"
+            aria-hidden="true"
+          />
+          <img 
+            src="/images/cookie-float-2.png" 
+            alt="" 
+            class="absolute bottom-16 right-4 w-16 md:w-24 object-contain rotate-45 z-20 animate-float-delayed"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom Animations for floating elements to enhance visual dynamics */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-12deg); }
+    50% { transform: translateY(-20px) rotate(-5deg); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) rotate(45deg); }
+    50% { transform: translateY(-25px) rotate(55deg); } 
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float-delayed 7s ease-in-out infinite 2s;
+  }
+</style>

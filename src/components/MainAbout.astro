@@ -1,0 +1,99 @@
+---
+// src/components/MainAbout.astro
+---
+
+<section id="home" class="bg-[#FDF6E2] w-full relative overflow-hidden">
+  <div class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto h-full flex flex-col justify-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center h-full">
+      
+      <!-- Left Column: Hero Texts -->
+      <div class="flex flex-col text-center md:text-left z-10 h-full justify-center pt-8 md:pt-0">
+        <div class="flex-grow flex flex-col justify-center">
+          <h1 class="font-viga text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.1] text-gray-950 mb-6 tracking-tight">
+            First Ever <span class="text-[#1E3A8A]">Norwegian</span><br class="hidden lg:block" />
+            Ostekake In Indonesia
+          </h1>
+          
+          <p class="font-zain text-xl sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed max-w-xl mx-auto md:mx-0">
+            Re-Engineering the way you enjoy cheese.<br />
+            Light, velvet-smooth, never boring.
+          </p>
+        </div>
+
+        <!-- Location Footer Address -->
+        <div class="mt-12 md:mt-auto pt-8">
+          <p class="text-[10px] sm:text-xs text-[#1E3A8A] font-medium tracking-wide">
+            Nusa Loka Park BSD, Plaza Cordoba, Jl. Mekar Jaya Blok M08, Banten, Kec. Serpong
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Product Visual Auto-Swipe Carousel -->
+      <div class="relative w-full overflow-hidden flex items-center order-first md:order-last mt-8 md:mt-0 h-[350px] md:h-[550px]">
+        
+        {/* Soft edge masks for blending */}
+        <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#FDF6E2] to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#FDF6E2] to-transparent z-10 pointer-events-none"></div>
+
+        {/* Carousel Track */}
+        <div class="flex animate-carousel w-max group">
+          {/* First set of 6 products */}
+          <div class="flex items-center">
+            {[
+              "/images/product-signature-original.png",
+              "/images/product-signature-cathy.png",
+              "/images/product-signature-fiona.png",
+              "/images/product-signature-hana.png",
+              "/images/product-premium-helena.png",
+              "/images/product-premium-victoria.png",
+            ].map((src, i) => (
+              <div class="w-[260px] md:w-[380px] flex-shrink-0 flex justify-center px-4 md:px-8">
+                <img 
+                  src={src} 
+                  alt="Big Phil Ostekake Product" 
+                  class="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 hover:-translate-y-4 transition-all duration-500 ease-out"
+                  loading={i < 2 ? "eager" : "lazy"} 
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Duplicated set for seamless infinite loop */}
+          <div class="flex items-center">
+            {[
+              "/images/product-signature-original.png",
+              "/images/product-signature-cathy.png",
+              "/images/product-signature-fiona.png",
+              "/images/product-signature-hana.png",
+              "/images/product-premium-helena.png",
+              "/images/product-premium-victoria.png",
+            ].map((src) => (
+              <div class="w-[260px] md:w-[380px] flex-shrink-0 flex justify-center px-4 md:px-8">
+                <img 
+                  src={src} 
+                  alt="Big Phil Ostekake Product" 
+                  class="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 hover:-translate-y-4 transition-all duration-500 ease-out"
+                  loading="lazy" 
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes carousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-carousel {
+    animation: carousel 35s linear infinite;
+  }
+  .animate-carousel:hover {
+    animation-play-state: paused;
+  }
+</style>

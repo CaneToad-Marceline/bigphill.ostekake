@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import MainAbout from '../components/MainAbout.astro';
+import WhereToFindUs from '../components/WhereToFindUs.astro';
+import ProductMenu from '../components/ProductMenu.jsx';
+import ResellerB2B from '../components/ResellerB2B.astro';
+import InstagramFeed from '../components/InstagramFeed.astro';
+---
+
+<Layout title="Big Phil Ostekake">
+  <Navbar />
+  <main class="flex flex-col">
+    <MainAbout />
+    <WhereToFindUs />
+    <ProductMenu client:load />
+    <ResellerB2B />
+    <InstagramFeed />
+  </main>
+</Layout>

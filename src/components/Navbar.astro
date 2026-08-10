@@ -1,0 +1,124 @@
+---
+// src/components/Navbar.astro
+const links = [
+  { name: 'Home', href: '#' },
+  { name: 'Products', href: '#products' },
+  { name: 'Partnership', href: '#partnership' },
+  { name: 'Updates', href: '#updates' },
+  { name: 'Reviews', href: '#reviews' },
+];
+---
+
+<header class="sticky top-0 z-50 w-full bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between h-20">
+    
+    <!-- Logo -->
+    <a href="/" class="hover:opacity-80 transition-opacity z-50 relative flex items-center justify-center">
+      <img src="/logos/blacklogo.svg" alt="Big Phil Ostekake Logo" class="h-10 md:h-12 w-auto object-contain" />
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class="text-gray-500 hover:text-[#FFB84D] transition-colors font-zain text-lg font-medium tracking-wide"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Desktop CTA Button -->
+    <div class="hidden md:flex items-center">
+      <a 
+        href="#shop" 
+        class="rounded-full px-6 py-2.5 bg-[#FFB84D] hover:bg-amber-400 text-gray-900 font-semibold transition-all hover:scale-105 active:scale-95 shadow-sm"
+      >
+        Shop Now
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Button -->
+    <button 
+      id="mobile-menu-btn"
+      class="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50 relative"
+      aria-label="Toggle Menu"
+    >
+      <span class="block w-6 h-0.5 bg-gray-900 transition-transform duration-300 origin-center rounded-full"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-opacity duration-300 rounded-full"></span>
+      <span class="block w-6 h-0.5 bg-gray-900 transition-transform duration-300 origin-center rounded-full"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Drawer/Overlay -->
+  <div 
+    id="mobile-menu" 
+    class="fixed inset-0 bg-white/95 backdrop-blur-sm z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-6 pb-8 h-screen"
+  >
+    <nav class="flex flex-col space-y-8 text-center mt-8">
+      {links.map((link) => (
+        <a 
+          href={link.href} 
+          class="mobile-link text-3xl font-zain font-bold text-gray-800 hover:text-[#FFB84D] transition-colors"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+    <div class="mt-auto flex justify-center pb-12 w-full">
+      <a 
+        href="#shop" 
+        class="mobile-link rounded-full px-8 py-3.5 w-full max-w-sm text-center bg-[#FFB84D] text-gray-900 font-semibold text-xl transition-transform active:scale-95 shadow-md"
+      >
+        Shop Now
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const spans = btn?.querySelectorAll('span');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+  
+  let isOpen = false;
+
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    
+    if (isOpen) {
+      // Open Menu
+      menu?.classList.remove('translate-x-full');
+      menu?.classList.add('translate-x-0');
+      // Hamburger to X animation
+      if (spans && spans.length === 3) {
+        spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+      }
+      document.body.style.overflow = 'hidden'; // Prevent scrolling
+    } else {
+      // Close Menu
+      menu?.classList.add('translate-x-full');
+      menu?.classList.remove('translate-x-0');
+      // X back to Hamburger animation
+      if (spans && spans.length === 3) {
+        spans[0].style.transform = 'none';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'none';
+      }
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+  };
+
+  btn?.addEventListener('click', toggleMenu);
+
+  // Close menu when any link inside it is clicked
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (isOpen) toggleMenu();
+    });
+  });
+</script>
