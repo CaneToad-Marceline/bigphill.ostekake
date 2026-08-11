@@ -1,11 +1,12 @@
 ---
 // src/components/Navbar.astro
 const links = [
-  { name: 'Home', href: '#' },
-  { name: 'Products', href: '#products' },
+  { name: 'Home', href: '#home' },
+  { name: 'Products', href: '#menu' },
   { name: 'Partnership', href: '#partnership' },
-  { name: 'Updates', href: '#updates' },
+  { name: 'Updates', href: '#instagram-updates' },
   { name: 'Reviews', href: '#reviews' },
+  { name: 'FAQ', href: '#faq' },
 ];
 ---
 
@@ -32,7 +33,7 @@ const links = [
     <!-- Desktop CTA Button -->
     <div class="hidden md:flex items-center">
       <a 
-        href="#shop" 
+        href="https://linktr.ee/bigphil.ostekake" target="_blank" rel="noopener noreferrer"
         class="rounded-full px-6 py-2.5 bg-[#FFB84D] hover:bg-amber-400 text-gray-900 font-semibold transition-all hover:scale-105 active:scale-95 shadow-sm"
       >
         Shop Now
@@ -68,7 +69,7 @@ const links = [
     </nav>
     <div class="mt-auto flex justify-center pb-12 w-full">
       <a 
-        href="#shop" 
+        href="https://linktr.ee/bigphil.ostekake" target="_blank" rel="noopener noreferrer"
         class="mobile-link rounded-full px-8 py-3.5 w-full max-w-sm text-center bg-[#FFB84D] text-gray-900 font-semibold text-xl transition-transform active:scale-95 shadow-md"
       >
         Shop Now

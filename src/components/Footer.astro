@@ -19,7 +19,7 @@
       <div class="flex flex-col gap-4 w-full">
         <h3 class="font-extrabold text-gray-900 text-lg md:text-xl">About Us</h3>
         <ul class="flex flex-col gap-3 text-sm text-gray-600 font-semibold">
-          <li><a href="#" class="hover:underline hover:text-amber-600 transition-colors">Our Location</a></li>
+          <li><a href="https://maps.app.goo.gl/zx9Tf3zeXuY6XhzS8" target="_blank" rel="noopener noreferrer" class="hover:underline hover:text-amber-600 transition-colors">Our Location</a></li>
           <li><a href="#" class="hover:underline hover:text-amber-600 transition-colors">Our Story</a></li>
           <li class="text-gray-500 leading-relaxed mt-1">Operational Time<br/>(10.00 - 20.00)</li>
         </ul>
@@ -29,9 +29,9 @@
       <div class="flex flex-col gap-4 w-full">
         <h3 class="font-extrabold text-gray-900 text-lg md:text-xl">Our Series</h3>
         <ul class="flex flex-col gap-3 text-sm text-gray-600 font-semibold">
-          <li><a href="/products/original" class="hover:underline hover:text-amber-600 transition-colors">Original Ostekake</a></li>
-          <li><a href="/products/helena" class="hover:underline hover:text-amber-600 transition-colors">Premium Series</a></li>
-          <li><a href="/products/cathy" class="hover:underline hover:text-amber-600 transition-colors">Signature Series</a></li>
+          <li><a href="#menu" data-menu-select='{"category":"Signature","id":"Original"}' class="menu-link hover:underline hover:text-amber-600 transition-colors">Original Ostekake</a></li>
+          <li><a href="#menu" data-menu-select='{"category":"Premium","id":"Helena"}' class="menu-link hover:underline hover:text-amber-600 transition-colors">Premium Series</a></li>
+          <li><a href="#menu" data-menu-select='{"category":"Signature","id":"Original"}' class="menu-link hover:underline hover:text-amber-600 transition-colors">Signature Series</a></li>
         </ul>
       </div>
 
@@ -92,3 +92,20 @@
 
   </div>
 </footer>
+
+<script>
+  // Add interactive custom event dispatching to footer menu links
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const rawData = link.getAttribute('data-menu-select');
+        if (rawData) {
+          const data = JSON.parse(rawData);
+          // Dispatch event to ProductMenu.jsx to open exact tab
+          window.dispatchEvent(new CustomEvent('selectProduct', { detail: data }));
+        }
+      });
+    });
+  });
+</script>
