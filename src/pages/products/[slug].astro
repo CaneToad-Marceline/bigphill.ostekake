@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+// This function is REQUIRED by Astro to generate static pages for dynamic routes at build time.
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'original' } },
+    { params: { slug: 'cathy' } },
+    { params: { slug: 'fiona' } },
+    { params: { slug: 'hana' } },
+    { params: { slug: 'helena' } },
+    { params: { slug: 'victoria' } }
+  ];
+}
+
+const { slug } = Astro.params;
+---
+
+<Layout title={`Big Phil Ostekake - ${slug}`}>
+  <div class="min-h-[60vh] flex flex-col items-center justify-center py-24 px-4 text-center font-sans">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 capitalize mb-4">
+      {slug}
+    </h1>
+    <p class="text-lg text-gray-600 mb-8">Detailed product page is currently under development.</p>
+    
+    <a href="/" class="bg-[#FFB84D] text-gray-900 font-bold py-3 px-8 rounded-xl hover:scale-105 transition-transform">
+      Back to Home
+    </a>
+  </div>
+</Layout>
