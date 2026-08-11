@@ -1,5 +1,5 @@
 ---
-// src/components/MainAbout.astro
+import HeroSlider from './HeroSlider.jsx';
 ---
 
 <section id="home" class="bg-[#FDF6E2] w-full relative overflow-hidden">
@@ -22,78 +22,15 @@
 
         <!-- Location Footer Address -->
         <div class="mt-12 md:mt-auto pt-8">
-          <p class="text-[10px] sm:text-xs text-[#1E3A8A] font-medium tracking-wide">
+          <a href="https://maps.app.goo.gl/zx9Tf3zeXuY6XhzS8" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-xs text-[#1E3A8A] font-medium tracking-wide hover:underline hover:text-blue-800 transition-colors">
             Nusa Loka Park BSD, Plaza Cordoba, Jl. Mekar Jaya Blok M08, Banten, Kec. Serpong
-          </p>
+          </a>
         </div>
       </div>
 
-      <!-- Right Column: Product Visual Auto-Swipe Carousel -->
-      <div class="relative w-full overflow-hidden flex items-center order-first md:order-last mt-8 md:mt-0 h-[350px] md:h-[550px]">
-        
-        {/* Soft edge masks for blending */}
-        <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-[#FDF6E2] to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-[#FDF6E2] to-transparent z-10 pointer-events-none"></div>
-
-        {/* Carousel Track */}
-        <div class="flex animate-carousel w-max group">
-          {/* First set of 6 products */}
-          <div class="flex items-center">
-            {[
-              "/images/product-signature-original.png",
-              "/images/product-signature-cathy.png",
-              "/images/product-signature-fiona.png",
-              "/images/product-signature-hana.png",
-              "/images/product-premium-helena.png",
-              "/images/product-premium-victoria.png",
-            ].map((src, i) => (
-              <div class="w-[260px] md:w-[380px] flex-shrink-0 flex justify-center px-4 md:px-8">
-                <img 
-                  src={src} 
-                  alt="Big Phil Ostekake Product" 
-                  class="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 hover:-translate-y-4 transition-all duration-500 ease-out"
-                  loading={i < 2 ? "eager" : "lazy"} 
-                />
-              </div>
-            ))}
-          </div>
-
-          {/* Duplicated set for seamless infinite loop */}
-          <div class="flex items-center">
-            {[
-              "/images/product-signature-original.png",
-              "/images/product-signature-cathy.png",
-              "/images/product-signature-fiona.png",
-              "/images/product-signature-hana.png",
-              "/images/product-premium-helena.png",
-              "/images/product-premium-victoria.png",
-            ].map((src) => (
-              <div class="w-[260px] md:w-[380px] flex-shrink-0 flex justify-center px-4 md:px-8">
-                <img 
-                  src={src} 
-                  alt="Big Phil Ostekake Product" 
-                  class="w-full h-auto object-contain drop-shadow-2xl hover:scale-110 hover:-translate-y-4 transition-all duration-500 ease-out"
-                  loading="lazy" 
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <!-- Right Column: Product Visual Interactive React Slider -->
+      <HeroSlider client:load />
       
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes carousel {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .animate-carousel {
-    animation: carousel 35s linear infinite;
-  }
-  .animate-carousel:hover {
-    animation-play-state: paused;
-  }
-</style>

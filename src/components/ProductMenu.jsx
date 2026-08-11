@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MENU_DATA = {
   Signature: {
@@ -63,6 +63,18 @@ export default function ProductMenu() {
     // Reset to the first product of the newly selected category
     setActiveProduct(MENU_DATA[cat].products[0].id);
   };
+
+  useEffect(() => {
+    const handleSelectProduct = (e) => {
+      const { category, id } = e.detail;
+      if (MENU_DATA[category]) {
+        setActiveCategory(category);
+        setActiveProduct(id);
+      }
+    };
+    window.addEventListener('selectProduct', handleSelectProduct);
+    return () => window.removeEventListener('selectProduct', handleSelectProduct);
+  }, []);
 
   const currentCategoryData = MENU_DATA[activeCategory];
   const currentProductData = currentCategoryData.products.find(p => p.id === activeProduct);
@@ -153,9 +165,9 @@ export default function ProductMenu() {
                         ? 'border-gray-900 bg-white shadow-[4px_4px_0px_0px_rgba(17,24,39,1)] -translate-y-1'
                         : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-sm'}`}
                   >
-                    {/* Small Image Square Preview */}
-                    <div className="w-20 h-20 md:w-20 md:h-20 rounded-xl bg-transparent flex-shrink-0 flex items-center justify-center -ml-2">
-                      <img src={p.previewImage} alt={p.name} className="w-full h-full object-contain scale-110 drop-shadow-sm" />
+                    {/* Transparent Icon Container */}
+                    <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                      <img src={p.previewImage} alt={p.name} className="w-full h-full object-contain scale-[1.4] drop-shadow-sm" />
                     </div>
                     <span className={`font-black text-2xl md:text-3xl transition-colors ${activeProduct === p.id ? 'text-gray-900' : 'text-gray-500'}`}>
                       {p.name}
@@ -181,13 +193,20 @@ export default function ProductMenu() {
           <div className="mt-auto pt-6 border-t-2 border-dashed border-gray-200 flex flex-col sm:flex-row sm:items-center gap-4">
             <span className="text-sm font-black text-gray-400 uppercase tracking-widest">Tersedia di :</span>
             <div className="flex flex-wrap gap-4 md:gap-6">
-              {['GoFood', 'ShopeeFood', 'GrabFood', 'WhatsApp Catalog'].map((platform) => (
+              {[
+                { name: 'GoFood', url: 'https://gofood.link/a/TRdyr7L' },
+                { name: 'ShopeeFood', url: 'https://shopee.co.id/universal-link/now-food/shop/23268075?deep_and_deferred=1&shareChannel=copy_link' },
+                { name: 'GrabFood', url: 'https://r.grab.com/g/6-20260702_163655_EFB30F15F7C442C1947C0CFD5BA14BE3_MEXMPS-6-C8BDRRBUJAVHCA' },
+                { name: 'WhatsApp Catalog', url: 'https://wa.me/c/6281524321194' }
+              ].map((platform) => (
                 <a
-                  key={platform}
-                  href="#"
+                  key={platform.name}
+                  href={platform.url}
+                  target="_blank" 
+                  rel="noopener noreferrer"
                   className="text-gray-900 font-extrabold hover:text-[#FFB84D] transition-colors text-sm border-b-2 border-transparent hover:border-[#FFB84D] pb-0.5"
                 >
-                  {platform}
+                  {platform.name}
                 </a>
               ))}
             </div>
