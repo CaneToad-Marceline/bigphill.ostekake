@@ -7,6 +7,8 @@ import ProductMenu from '../components/ProductMenu.jsx';
 import ResellerB2B from '../components/ResellerB2B.astro';
 import InstagramFeed from '../components/InstagramFeed.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
+import FAQ from '../components/FAQ.jsx';
+import Footer from '../components/Footer.astro';
 ---
 
 <Layout title="Big Phil Ostekake">
@@ -18,5 +20,7 @@ import GoogleReviews from '../components/GoogleReviews.astro';
     <ResellerB2B />
     <InstagramFeed />
     <GoogleReviews />
+    <FAQ client:load />
+    <Footer />
   </main>
 </Layout>
