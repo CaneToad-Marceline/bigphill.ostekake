@@ -9,25 +9,25 @@ const MENU_DATA = {
         id: "Original",
         name: "Original",
         image: "/images/product-signature-original.png",
-        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit", "Vanilla Extract", "Premium Butter", "Fresh Cream", "Organic Sugar"]
+        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit", "Non-Diary Whip Cream", "", " ", " "]
       },
       {
         id: "Cathy",
         name: "Cathy",
         image: "/images/product-signature-cathy.png",
-        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit", "Caramel Sauce", "Sea Salt", "Premium Butter", "Vanilla Extract"]
+        ingredients: ["Neufchâtel cream cheese", "Oreo Biscuit", "Non-Diary Whip Cream", "Oreo Crumbs", "", ""]
       },
       {
         id: "Fiona",
         name: "Fiona",
         image: "/images/product-signature-fiona.png",
-        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit", "Strawberry Compote", "Lemon Juice", "Premium Butter", "Fresh Cream"]
+        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit Crumbs", "Blueberry Compote", "Non-Diary Whip Cream", "Snicker Bar", ""]
       },
       {
         id: "Hana",
         name: "Hana",
         image: "/images/product-signature-hana.png",
-        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit", "Matcha Powder", "White Chocolate", "Premium Butter", "Fresh Cream"]
+        ingredients: ["Neufchâtel cream cheese", "Milk Biscuit Crumbs", "Strawberry Compote", "Non-Diary Whip Cream", "Strawberry Yogurt Silverqueen", ""]
       }
     ]
   },
@@ -40,14 +40,14 @@ const MENU_DATA = {
         name: "Helena",
         image: "/images/product-premium-helena.png",
         previewImage: "/images/premium-helena-thumb.png",
-        ingredients: ["Neufchâtel cream cheese", "Oreo Crust", "Ferrero Rocher", "Hazelnut Praline", "Dark Chocolate", "Roasted Hazelnuts"]
+        ingredients: ["Neufchâtel cream cheese", "Lotus Biscoff Crumbs", "Lotus Biscoff biscuit", "Lotus Biscoff Spread", "", ""]
       },
       {
         id: "Victoria",
         name: "Victoria",
         image: "/images/product-premium-victoria.png",
         previewImage: "/images/premium-victoria-thumb.png",
-        ingredients: ["Neufchâtel cream cheese", "Lotus Biscoff Crust", "Biscoff Spread", "Caramelized Sugar", "Cinnamon", "Fresh Cream"]
+        ingredients: ["Neufchâtel cream cheese", "Hazelnut Chocolate Spread", "Ferrero Rocher", "", "", ""]
       }
     ]
   }
@@ -178,14 +178,25 @@ export default function ProductMenu() {
             )}
           </div>
 
-          {/* Ingredient Grid Table (Matching Image 2) */}
+          {/* Adaptive Ingredient Table */}
           <div className="mb-10 w-full animate-fade-in">
-            <div className="grid grid-cols-2 md:grid-cols-3 border-l border-t border-gray-900/20">
-              {currentProductData.ingredients.map((ing, i) => (
-                <div key={`${currentProductData.id}-ing-${i}`} className="border-r border-b border-gray-900/20 p-4 md:p-6 flex items-center justify-center text-center">
-                  <span className="text-gray-800 font-bold text-xs md:text-sm">{ing}</span>
-                </div>
-              ))}
+            <div className="flex flex-wrap border-l border-t border-gray-900/20">
+              {currentProductData.ingredients
+                .filter(ing => ing && ing.trim() !== "")
+                .map((ing, i, arr) => {
+                  const deskWidth = arr.length === 4 || arr.length === 2 ? 'md:w-1/2' : 'md:w-1/3';
+                  const isLastRowOfFive = arr.length === 5 && i >= 3;
+                  const widthClass = isLastRowOfFive ? 'w-1/2 md:w-1/2' : `w-1/2 ${deskWidth}`;
+                  
+                  return (
+                    <div 
+                      key={`${currentProductData.id}-ing-${i}`} 
+                      className={`flex-grow ${widthClass} border-r border-b border-gray-900/20 p-4 md:p-6 flex items-center justify-center text-center bg-white/30 backdrop-blur-sm hover:bg-white/60 transition-colors duration-300`}
+                    >
+                      <span className="text-gray-800 font-bold text-xs md:text-sm">{ing}</span>
+                    </div>
+                  );
+              })}
             </div>
           </div>
 
@@ -202,7 +213,7 @@ export default function ProductMenu() {
                 <a
                   key={platform.name}
                   href={platform.url}
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-900 font-extrabold hover:text-[#FFB84D] transition-colors text-sm border-b-2 border-transparent hover:border-[#FFB84D] pb-0.5"
                 >

@@ -12,13 +12,13 @@ const FAQ_DATA = {
     },
     {
       q: "Bagaimana cara terbaik menikmati dan menyimpan Ostekake?",
-      a: "Ostekake paling nikmat disantap dingin. Simpan di dalam lemari es (chiller) dalam wadah tertutup rapat. Kue dapat bertahan segar hingga 3–5 hari."
+      a: "Ostekake paling nikmat disantap dingin. Simpan di dalam lemari es (chiller) dengan jar tertutup. Kue dapat bertahan segar hingga 7 hari. Dapat bertahan up to 3 bulan dalam kondisi beku di dalam Freezer"
     }
   ],
   Pengiriman: [
     {
       q: "Apakah bisa kirim ke luar kota?",
-      a: "Untuk menjaga kualitas tekstur kue tetap sempurna dan segar, saat ini kami hanya melayani pengiriman instan/sameday untuk wilayah JABODETABEK melalui GoSend, GrabExpress, atau platform ojol kami."
+      a: "Untuk menjaga kualitas tekstur kue tetap sempurna dan segar, saat ini kami hanya melayani pengiriman instan/sameday untuk wilayah JABODETABEK melalui GoSend, GrabExpress, atau platform Pengiriman lain nya."
     }
   ],
   Kemitraan: [
