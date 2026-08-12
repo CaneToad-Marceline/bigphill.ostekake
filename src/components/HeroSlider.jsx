@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 
 const products = [
   { src: "/images/product-signature-original.png", name: "Original", cat: "Signature" },
@@ -15,7 +16,9 @@ export default function HeroSlider() {
     loop: true,
     dragFree: true,
     containScroll: "trimSnaps" 
-  });
+  }, [
+    Autoplay({ delay: 3000, stopOnInteraction: false })
+  ]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -40,8 +43,16 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="relative w-full flex items-center mt-8 md:mt-0 h-[350px] md:h-[550px] order-first md:order-last group">
+    <div className="relative w-full flex flex-col items-center mt-8 md:mt-0 h-[350px] md:h-[550px] order-first md:order-last group">
       
+      {/* Light instruction text */}
+      <div className="absolute top-0 z-30 flex items-center gap-2 text-amber-500/80 font-zain font-bold text-lg md:text-xl animate-bounce">
+        <svg xmlns="http://www.w3.org/0000.svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59" />
+        </svg>
+        swipe and tap me!
+      </div>
+
       {/* Embla Viewport */}
       <div className="overflow-hidden w-full h-full" ref={emblaRef}>
         {/* Carousel Track */}
