@@ -91,7 +91,7 @@ export default function HeroSlider() {
       {/* Modern Transparent Navigation Arrows */}
       <button 
         onClick={scrollPrev}
-        className="absolute left-2 md:left-6 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.08)] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 hover:bg-white/50 hover:scale-110"
+        className="absolute top-1/2 -translate-y-1/2 left-2 md:left-6 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.08)] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 hover:bg-white/50 hover:scale-110"
         aria-label="Previous Slide"
       >
         <svg xmlns="http://www.w3.org/0000.svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 md:w-6 md:h-6">
@@ -101,7 +101,7 @@ export default function HeroSlider() {
 
       <button 
         onClick={scrollNext}
-        className="absolute right-2 md:right-6 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.08)] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 hover:bg-white/50 hover:scale-110"
+        className="absolute top-1/2 -translate-y-1/2 right-2 md:right-6 z-20 w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-gray-800 shadow-[0_4px_20px_rgba(0,0,0,0.08)] opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-300 hover:bg-white/50 hover:scale-110"
         aria-label="Next Slide"
       >
         <svg xmlns="http://www.w3.org/0000.svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5 md:w-6 md:h-6">
