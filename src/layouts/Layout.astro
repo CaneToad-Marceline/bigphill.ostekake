@@ -35,6 +35,39 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Viga&family=Zain:wght@200;300;400;700;800;900&display=swap" rel="stylesheet">
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Bakery",
+        "name": "Big Phil Ostekake",
+        "image": "https://bigphilostekake.id",
+        "@id": "https://bigphilostekake.id",
+        "url": "https://bigphilostekake.id",
+        "telephone": "+6281524321184",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Piazza Carribean Blok B No 109, Beverli Lakes-Pakar",
+          "addressLocality": "Gading Serpong, Pagedangan, Tangerang",
+          "addressRegion": "Banten",
+          "postalCode": "15810",
+          "addressCountry": "ID"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -6.2625,
+          "longitude": 106.6214
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+          ],
+          "opens": "10:00",
+          "closes": "20:00"
+        }
+      }
+    </script>
   </head>
   <body>
     <slot />
