@@ -179,7 +179,7 @@ export default function ProductMenu() {
           </div>
 
           {/* Adaptive Ingredient Table */}
-          <div className="mb-10 w-full animate-fade-in">
+          <div className="w-full animate-fade-in">
             <div className="flex flex-wrap border-l border-t border-gray-900/20">
               {currentProductData.ingredients
                 .filter(ing => ing && ing.trim() !== "")
@@ -199,6 +199,15 @@ export default function ProductMenu() {
               })}
             </div>
           </div>
+
+          <a
+            href={`https://wa.me/6281524321194?text=${encodeURIComponent(`haloo kak mau dong pesen ${currentProductData.name} nyaa`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full rounded-full py-3.5 bg-[#FFB84D] text-gray-900 font-bold tracking-wide text-center block active:scale-[0.98] transition-transform mt-8 mb-6"
+          >
+            Pesan Sekarang
+          </a>
 
           {/* Footer Platform Row */}
           <div className="mt-auto pt-6 border-t-2 border-dashed border-gray-200 flex flex-col sm:flex-row sm:items-center gap-4">
