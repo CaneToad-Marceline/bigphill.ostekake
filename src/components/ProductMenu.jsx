@@ -60,7 +60,6 @@ export default function ProductMenu() {
   const handleCategoryChange = (cat) => {
     if (cat === activeCategory) return;
     setActiveCategory(cat);
-    // Reset to the first product of the newly selected category
     setActiveProduct(MENU_DATA[cat].products[0].id);
   };
 
@@ -187,16 +186,16 @@ export default function ProductMenu() {
                   const deskWidth = arr.length === 4 || arr.length === 2 ? 'md:w-1/2' : 'md:w-1/3';
                   const isLastRowOfFive = arr.length === 5 && i >= 3;
                   const widthClass = isLastRowOfFive ? 'w-1/2 md:w-1/2' : `w-1/2 ${deskWidth}`;
-                  
+
                   return (
-                    <div 
-                      key={`${currentProductData.id}-ing-${i}`} 
+                    <div
+                      key={`${currentProductData.id}-ing-${i}`}
                       className={`flex-grow ${widthClass} border-r border-b border-gray-900/20 p-4 md:p-6 flex items-center justify-center text-center bg-white/30 backdrop-blur-sm hover:bg-white/60 transition-colors duration-300`}
                     >
                       <span className="text-gray-800 font-bold text-xs md:text-sm">{ing}</span>
                     </div>
                   );
-              })}
+                })}
             </div>
           </div>
 
