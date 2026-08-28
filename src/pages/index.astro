@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import MainAbout from '../components/MainAbout.astro';
+import PromoSection from '../components/PromoSection.astro';
 import WhereToFindUs from '../components/WhereToFindUs.astro';
 import ProductMenu from '../components/ProductMenu.jsx';
 import ResellerB2B from '../components/ResellerB2B.astro';
@@ -15,6 +16,7 @@ import Footer from '../components/Footer.astro';
   <Navbar />
   <main class="flex flex-col">
     <MainAbout />
+    <PromoSection />
     <WhereToFindUs />
     <ProductMenu client:load />
     <ResellerB2B />
